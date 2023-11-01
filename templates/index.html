@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Include little icon in the link -->
+    <link rel="shortcut icon" href="static/assets/shroom.png" crossorigin="anonymous" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/custom.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    <script type="text/javascript" src="static/js/classes.js"></script>
+    <script type="text/javascript" src="static/js/main.js"></script>
+
+
+    <title>Mushroom Identifying APP</title>
+  </head>
+
+  <body onload="loadModel()">
+    <div class="container ">
+        <div class="row">
+          <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+              <div class="card-img-left d-none d-md-flex">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center font-weight-bold">Beta Mushroom Identifier</h5>
+                <div class="row">
+                
+                  <p style=" margin: 0 auto;">Hello! This is the beta version of the mushroom identifying app.
+                  <br>
+                  Due to lack of computational power, I was only trained on classifying 10 species. 
+                  </p>
+                  <img style="width: 65%; margin: 0 auto;" src="https://thumbs.dreamstime.com/b/watercolor-seamless-banner-mushrooms-white-background-watercolor-seamless-banner-mushrooms-white-background-141879836.jpg"/>
+                  <br>
+                 . <br>
+                </div>
+                <div class="row">
+                  
+                </div>
+                <hr>
+                <div class="row">
+                  <b style="color: #000000; font-size: 15px;">Attention:</b> Note that while some of these mushrooms are edible, it is important to exercise caution when foraging and consuming wild mushrooms. Always consult an expert or field guide to ensure that you are properly identifying the mushrooms you encounter, and never consume any mushroom unless you are certain of its identity and edibility.
+                </div>
+                <div id="progress-box" style="display: none; text-align: center;">
+                  <img src="static/assets/loading.gif" id="model-load" width="50px" />
+                  <p style="color: black; font-size: small;">Loading model...</p>
+                </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-4">
+                      <label class="btn btn-md btn-outline-dark" for="select-file-image">
+                        Upload Image
+                      </label>
+                      <input id="select-file-image" type="file" style="display: none;" onchange="upload()">
+                    </div>
+                  </div>
+
+                  <div class="row" style="display: none;" id="output-row">
+
+                    <div class="col">
+                      <div class="out-box" id="test-image-box" style="display: none;">
+                        <br />
+                        <img id='test-image' style="max-width: 600px; max-height: 450px"/>
+                        <p id="prediction"></p>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <br />
+                      <div id="progress-prediction" style="display: none; text-align: center;">
+                        <img src="static/assets/loading.gif" width="50px" />
+                      </div>
+                      <div class="out-box" id="predict-box" style="display: none;">
+                        <p><b style="color: #000000; font-size: 15px;">Top-5 Predictions</b></p>
+                        <ul id="predict-list">
+                        </ul>
+                        
+                      </div>
+                      <p id="predict-info">
+
+                      </p>
+                    </div>
+                  </div>
+                  <br />
+                  <button id="predict-button" onclick="startLoader();predict()" class="btn btn-lg btn btn-outline-warning btn-block text-uppercase" >Predict</button>
+                  <hr>
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </body>
+      </html>
