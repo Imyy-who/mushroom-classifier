@@ -24,8 +24,11 @@ This is important because the model's architecture and weights are often designe
 
 ### 2. Build the model(s)
 With the web-application in mind, I decided to apply transfer learning using To achieve our goal, we tested three models, detailed below:
+
 -InceptionV3
+
 -ResNet50
+
 -EfficientNetB1
 
 
